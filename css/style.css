@@ -1,0 +1,151 @@
+@import url(https://fonts.googleapis.com/css?family=Uchen:regular);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Uchen";
+  text-transform: uppercase;
+}
+
+.lock {
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  padding: 10px;
+}
+.header__logo {
+  font-size: 40px;
+  color: #fff;
+}
+.header__burger {
+  display: none;
+}
+@media (max-width: 768px) {
+  .header__burger {
+    display: block;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+  }
+  .header__burger span {
+    transition: all 0.2s linear;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .header__burger span:nth-child(2) {
+    top: calc(50% - 1px);
+  }
+  .header__burger span:nth-child(3) {
+    top: auto;
+    bottom: 0;
+  }
+  .header__burger.active span:nth-child(1) {
+    top: calc(50% - 1px);
+    transform: rotate(-45deg);
+  }
+  .header__burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .header__burger.active span:nth-child(3) {
+    top: calc(50% - 1px);
+    transform: rotate(45deg);
+  }
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+}
+.menu__list {
+  display: flex;
+  gap: 20px;
+}
+.menu__item {
+  list-style-type: none;
+}
+.menu__link {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.1s linear;
+}
+.menu__link:hover {
+  transform: scale(1.1);
+}
+.menu__link.active::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background-color: #fff;
+}
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    transition: left 0.3s linear;
+  }
+  .menu.active {
+    left: 0;
+  }
+  .menu__list {
+    flex-direction: column;
+    margin: auto 0;
+  }
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.section__title {
+  margin: auto;
+}
+.section.main {
+  background-color: #AFEEEE;
+}
+.section.about {
+  background-color: #DDA0DD;
+}
+.section.portfolio {
+  background-color: #FFDEAD;
+}
+.section.contacts {
+  background-color: #FFF0F5;
+}
+
+.material-symbols-outlined {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 40px;
+}
